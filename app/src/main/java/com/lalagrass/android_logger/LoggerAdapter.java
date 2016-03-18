@@ -6,7 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LoggerAdapter extends RecyclerView.Adapter<LoggerAdapter.ViewHolder> {
@@ -51,7 +54,7 @@ public class LoggerAdapter extends RecyclerView.Adapter<LoggerAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         LoggerData data = list.get(position);
         viewHolder.getTextMsg().setText(data.LoggerMsg);
-        viewHolder.getTextDate().setText(String.valueOf(data.LoggerDate));
+        viewHolder.getTextDate().setText(DateFormat.getDateTimeInstance().format(new Date(data.LoggerDate)));
     }
 
     @Override
